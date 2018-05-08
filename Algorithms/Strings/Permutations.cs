@@ -5,8 +5,6 @@
 using System;
 using System.Collections.Generic;
 
-using Algorithms.Sorting;
-
 namespace Algorithms.Strings
 {
     public static class Permutations
@@ -78,15 +76,17 @@ namespace Algorithms.Strings
             int len = source.Length;
             // Hash set which will contains all the characters present in input souce.
             var hashSetSourceChars = new HashSet<char>();
+            var hashSetOtherChars = new HashSet<char>();
             for (int i = 0; i < len; i++)
             {
                 hashSetSourceChars.Add(source[i]);
+                hashSetOtherChars.Add(other[i]);
             }
             for (int i = 0; i < len; i++)
             {
                 // Inputs are not Anargram if characers from *other are not present in *source.
                 if (!hashSetSourceChars.Contains(other[i])) return false;
-                //if (!hashSetOther.Contains(source[i])) return false;
+                if (!hashSetOtherChars.Contains(source[i])) return false;
             }
             return true;
         }

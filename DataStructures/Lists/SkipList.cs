@@ -8,8 +8,6 @@
 
 using System;
 using System.Collections.Generic;
-
-using DataStructures.Lists;
 using DataStructures.Common;
 
 namespace DataStructures.Lists
@@ -100,6 +98,7 @@ namespace DataStructures.Lists
         {
             get
             {
+                // TODO:
                 throw new NotImplementedException();
             }
         }
@@ -247,7 +246,7 @@ namespace DataStructures.Lists
 
             if (!TryDeleteMin(out min))
             {
-                throw new ApplicationException("SkipList is empty.");
+                throw new InvalidOperationException("SkipList is empty.");
             }
 
             return min;
@@ -276,7 +275,7 @@ namespace DataStructures.Lists
 
             if (!TryPeek(out peek))
             {
-                throw new ApplicationException("SkipList is empty.");
+                throw new InvalidOperationException("SkipList is empty.");
             }
 
             return peek;
